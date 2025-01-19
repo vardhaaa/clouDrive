@@ -6,6 +6,16 @@ include('db.php');
 $sortBy = isset($_GET['sort_by']) ? $_GET['sort_by'] : 'upload_time'; // Default sort by upload_time
 $order = isset($_GET['order']) && $_GET['order'] === 'asc' ? 'asc' : 'desc'; // Default order descending
 
+// Start session
+session_start();
+
+// Cek apakah session ada, jika tidak redirect ke login
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit(); // Hentikan eksekusi lebih lanjut
+}
+
+
 // Check if form is submitted for uploading
 if (isset($_POST['submit'])) {
     $fileName = $_FILES['file']['name'];  // Use the original file name
@@ -118,6 +128,12 @@ if (isset($_POST['rename'])) {
         }
     }
 }
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -129,8 +145,14 @@ if (isset($_POST['rename'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <!-- Tombol Logout -->
+    <form action="logout.php" method="POST" style="margin-bottom: 20px;">
+        <button class="logout-button" type="submit" name="logout">Logout</button>
+    </form>
     <h1>clouDrive - File Uploader</h1>
     <h2>Simpan file mu disini!</h2>
+</header>
     <div class="container">
         <h2>Upload File</h2>
         <form action="" method="POST" enctype="multipart/form-data">

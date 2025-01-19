@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 10px;
     padding: 5px;
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
 .container {
@@ -18,47 +18,61 @@ h2, h3 {
     color: #333;
 }
 
+/* Styling tombol logout */
+/* Styling tombol logout */
+.logout-button {
+    position: fixed;  /* Menempatkan tombol di posisi tetap */
+    top: 30px;        /* Jarak dari atas halaman */
+    right: 20px;      /* Jarak dari sisi kanan halaman */
+    padding: 10px 20px;
+    background-color:rgb(198, 82, 82); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color:rgb(199, 102, 102); 
+}
+
+/* Styling untuk form input file */
 form input[type="file"] {
     margin: 10px 0;
 }
 
 button {
     padding: 10px 20px;
-    background-color:rgb(40, 70, 223);
+    background-color: rgb(40, 70, 223);
     color: white;
-    border: 20px;
-    cursor: pointer;
+    border: none;
     border-radius: 10px;
-
+    cursor: pointer;
 }
 
 button:hover {
-    background-color:rgb(117, 135, 236);
+    background-color: rgb(117, 135, 236);
 }
-
-
 
 /* General Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    
 }
 
 th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
-    
 }
 
 /* Header Styling */
 th {
-    background-color:rgb(15, 18, 223);
+    background-color: rgb(15, 18, 223);
     color: white;
     border-radius: 5px;
-
 }
 
 /* Row Hover Effect */
@@ -112,3 +126,4 @@ tr:hover {
     padding: 20px 0;
     font-size: 16px;
 }
+
